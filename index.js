@@ -15,12 +15,21 @@ function log(ele) {
 // Given a string word, return true if the usage of capitals in it is right.
 
 let word1 = "USA";
-let word2 = "egypT";
-let word3 = "Yousef";
+let word2 = "Yousef";
+let word3 = "mohamed";
+let word4 = "egypT";
 
 function isUpperCase(word) {
-	let arr = word.split("", word.length);
+	if (
+		word.toUpperCase() == word ||
+		word[0].toUpperCase() == word[0] ||
+		word.toLowerCase() == word
+	) {
+		return true;
+	} else {
+		return false;
+	}
 }
-isUpperCase(word1);
+log(isUpperCase(word4));
 
 // ####################################################
