@@ -1,7 +1,3 @@
-function log(ele) {
-	console.log(ele);
-}
-
 // ####################################################
 // detect-capital
 
@@ -17,19 +13,20 @@ function log(ele) {
 let word1 = "USA";
 let word2 = "Yousef";
 let word3 = "mohamed";
-let word4 = "egypT";
+let word4 = "EgypT";
 
 function isUpperCase(word) {
-	if (
-		word.toUpperCase() == word ||
-		word[0].toUpperCase() == word[0] ||
-		word.toLowerCase() == word
+	if (word.toUpperCase() == word || word.toLowerCase() == word) {
+		return true;
+	} else if (
+		word[0].toUpperCase() == word[0] &&
+		word.slice(1, word.length) == word.slice(1, word.length).toLowerCase()
 	) {
 		return true;
 	} else {
 		return false;
 	}
 }
-log(isUpperCase(word4));
+console.log(isUpperCase(word4));
 
 // ####################################################
