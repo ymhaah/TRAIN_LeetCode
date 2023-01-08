@@ -10,23 +10,52 @@
 // Only the first letter in this word is capital, like "Google".
 // Given a string word, return true if the usage of capitals in it is right.
 
-let word1 = "USA";
-let word2 = "Yousef";
-let word3 = "mohamed";
-let word4 = "EgypT";
+// let word1 = "USA";
+// let word2 = "Yousef";
+// let word3 = "mohamed";
+// let word4 = "EgypT";
 
-function isUpperCase(word) {
-	if (word.toUpperCase() == word || word.toLowerCase() == word) {
-		return true;
-	} else if (
-		word[0].toUpperCase() == word[0] &&
-		word.slice(1, word.length) == word.slice(1, word.length).toLowerCase()
-	) {
-		return true;
-	} else {
-		return false;
+// function isUpperCase(word) {
+// 	if (word.toUpperCase() == word || word.toLowerCase() == word) {
+// 		return true;
+// 	} else if (
+// 		word[0].toUpperCase() == word[0] &&
+// 		word.slice(1, word.length) == word.slice(1, word.length).toLowerCase()
+// 	) {
+// 		return true;
+// 	} else {
+// 		return false;
+// 	}
+// }
+// console.log(isUpperCase(word4));
+
+// ####################################################
+// Two Sum
+
+// link: https://leetcode.com/problems/two-sum/
+
+// Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+// You may assume that each input would have exactly one solution, and you may not use the same element twice.
+// You can return the answer in any order.
+
+// Example 1:
+// Input: nums = [2,7,11,15], target = 9
+// Output: [0,1]
+// Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
+
+let nums = [2, 7, 11, 15];
+let target = 9;
+
+function twoSum(nums, target) {
+	for (let I = 0; I < nums.length; I++) {
+		for (let i = I + 1; i < nums.length; i++) {
+			if (nums[I] + nums[i] == target) {
+				return [I, i];
+			}
+		}
 	}
 }
-console.log(isUpperCase(word4));
+
+console.log(twoSum(nums, target));
 
 // ####################################################
