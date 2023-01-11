@@ -43,19 +43,38 @@
 // Output: [0,1]
 // Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
 
-let nums = [2, 7, 11, 15];
-let target = 9;
+// let nums = [2, 7, 11, 15];
+// let target = 9;
 
-function twoSum(nums, target) {
-	for (let I = 0; I < nums.length; I++) {
-		for (let i = I + 1; i < nums.length; i++) {
-			if (nums[I] + nums[i] == target) {
-				return [I, i];
-			}
-		}
-	}
-}
+// function twoSum(nums, target) {
+// 	for (let I = 0; I < nums.length; I++) {
+// 		for (let i = I + 1; i < nums.length; i++) {
+// 			if (nums[I] + nums[i] == target) {
+// 				return [I, i];
+// 			}
+// 		}
+// 	}
+// }
 
-console.log(twoSum(nums, target));
+// console.log(twoSum(nums, target));
 
 // ####################################################
+// Longest Common Prefix
+
+// link: https://leetcode.com/problems/longest-common-prefix/
+
+// Write a function to find the longest common prefix string amongst an array of strings.
+// If there is no common prefix, return an empty string "".
+
+// Example 1:
+// Input: strs = ["flower","flow","flight"]
+// Output: "fl"
+
+let srts1 = ["flower", "flow", "flight"];
+let srts2 = ["dog", "racecar", "car"];
+
+function longestCommonPrefix(arr) {
+	return "";
+}
+
+console.log(longestCommonPrefix(srts1));
