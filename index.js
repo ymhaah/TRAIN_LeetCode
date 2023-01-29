@@ -98,3 +98,4 @@ function longestCommonPrefix(arr) {
 }
 longestCommonPrefix(srts1)
 // console.log(longestCommonPrefix(srts1));
+// ! for the github
