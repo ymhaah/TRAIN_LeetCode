@@ -74,28 +74,27 @@ let srts1 = ["flower", "flow", "flight"];
 let srts2 = ["dog", "racecar", "car"];
 
 function longestCommonPrefix(arr) {
-	let minLength = []
-	let min = 0;
-	let res = []
-	for(let item = 0; item < arr.length; item++){
-		minLength.push(arr[item].length);
-		min = Math.min(...minLength)
+    let minLength = [];
+    let min = 0;
+    let res = [];
+    for (let item = 0; item < arr.length; item++) {
+        minLength.push(arr[item].length);
+        min = Math.min(...minLength);
 
-		if(item < arr.length -1) {
-
-			for(let i=0; i < min; i++) {
-				if (arr[item][i] == arr[item + 1][i]) {
-					item++
-				}
-			}
-		} else {
-			if (arr[item][i] == arr[0][i]) {
-				item++
-			}
-		}
-	}
-
+        if (item < arr.length - 1) {
+            for (let i = 0; i < min; i++) {
+                if (arr[item][i] == arr[item + 1][i]) {
+                    item++;
+                }
+            }
+        } else {
+            if (arr[item][i] == arr[0][i]) {
+                item++;
+            }
+        }
+    }
 }
-longestCommonPrefix(srts1)
+longestCommonPrefix(srts1);
 // console.log(longestCommonPrefix(srts1));
 // ! for the github
+// ! for the github again
