@@ -70,31 +70,38 @@
 // Input: strs = ["flower","flow","flight"]
 // Output: "fl"
 
-let srts1 = ["flower", "flow", "flight"];
-let srts2 = ["dog", "racecar", "car"];
+// let srts1 = ["flower", "flow", "flight"];
+// let srts2 = ["dog", "racecar", "car"];
 
-function longestCommonPrefix(arr) {
-    let minLength = [];
-    let min = 0;
-    let res = [];
-    for (let item = 0; item < arr.length; item++) {
-        minLength.push(arr[item].length);
-        min = Math.min(...minLength);
+// var longestCommonPrefix = function (strs) {
+//     let prefix = "";
+//     if (strs.length === 0) return prefix;
 
-        if (item < arr.length - 1) {
-            for (let i = 0; i < min; i++) {
-                if (arr[item][i] == arr[item + 1][i]) {
-                    item++;
-                }
-            }
-        } else {
-            if (arr[item][i] == arr[0][i]) {
-                item++;
-            }
-        }
-    }
-}
-longestCommonPrefix(srts1);
+//     for (let i = 0; i < strs[0].length; i++) {
+//         const character = strs[0][i];
+//         for (let j = 0; j < strs.length; j++) {
+//             if (strs[j][i] !== character) return prefix;
+//         }
+//         prefix = prefix + character;
+//     }
+//     return prefix;
+// };
+
 // console.log(longestCommonPrefix(srts1));
-// ! for the github
-// ! for the github again
+
+// ####################################################
+
+// Palindrome Number
+// link: https://leetcode.com/problems/palindrome-number/
+
+// Given an integer x, return true if x is a Palindrome
+
+// An integer is a palindrome when it reads the same forward and backward.
+
+// For example, 121 is a palindrome while 123 is not.
+
+// Input: x = 121
+// Output: true
+// Explanation: 121 reads as 121 from left to right and from right to left.
+
+function isPalindrome(x) {}
