@@ -104,4 +104,19 @@
 // Output: true
 // Explanation: 121 reads as 121 from left to right and from right to left.
 
-function isPalindrome(x) {}
+// let x = 0; true
+// let x = 123; false
+// let x = 121; true
+// let x = -121; false
+
+// function isPalindrome(num) {
+//     if (num !== 0 && !num) {
+//         return false;
+//     }
+//     let revNum = num.toString().split("").reverse().join("");
+//     if (revNum == num.toString()) {
+//         return true;
+//     }
+//     return false;
+// }
+// console.log(isPalindrome(x));
