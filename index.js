@@ -148,44 +148,35 @@
 // Explanation: We must delete a character, so either the frequency of "a" is 1 and the frequency of "z" is 2, or vice versa.
 //  It is impossible to make all present letters have equal frequency.
 
-let word1 = "aabcc";
+let word1 = "abbccd";
 let word2 = "ccccaa";
 
 function equalFrequency(word) {
-    // if (word.split("").length === 0) return false;
-
-    // let arr = [];
-    // let num = 0;
-    // for (let i = 0; i < word.split("").length; i++) {
-    //     let cur = word.split("")[i];
-    //     for (let j = i + 1; j < word.split("").length; j++) {
-    //         if (cur === word.split("")[j] && i != j) {
-    //             arr.push(cur);
-
-    //             break;
-    //         }
-    //     }
-    // }
-    // console.log("arr:", arr);
-
-    // let freqStr = [];
-    // for (let i = 0; i < word.split("").length; i++) {
-    //     let cur = word.split("")[i];
-    //     for (let j = 0; j < word.split("").length; j++) {
-    //         let num = 0;
-    //         if (cur === word.split("")[j] && i != j) {
-    //             freqStr.push(cur);
-    //             num++;
-    //             if (num > 1) {
-    //                 let freqStrSet = new Set(freqStr);
-    //                 if (freqStrSet.size > 1) {
-    //                     return false;
-    //                 }
-    //             }
-    //         }
-    //     }
-    // }
-    return true;
+    let arr = word.split("");
+    let repNum = 0;
+    for (let i = 0; i < arr.length; i++) {
+        let firstLet = arr[i];
+        let rep = 0;
+        for (let n = 0; n < arr.length; n++) {
+            let secLet = arr[n];
+            if (firstLet == secLet) {
+                rep++;
+            }
+            if (n == arr.length - 1) {
+                if (rep == 2) {
+                    repNum++;
+                } else if (rep > 2) {
+                    return false;
+                }
+            }
+        }
+    }
+    if (repNum == 2) {
+        return true;
+    } else if (repNum > 2) {
+        return false;
+    }
+    return false;
 }
 // equalFrequency(word1)
-console.log("equalFrequency", equalFrequency(word2));
+console.log(equalFrequency(word1));
