@@ -148,35 +148,42 @@
 // Explanation: We must delete a character, so either the frequency of "a" is 1 and the frequency of "z" is 2, or vice versa.
 //  It is impossible to make all present letters have equal frequency.
 
-let word1 = "abbccd";
-let word2 = "ccccaa";
+let word1 = "ddaccb";
+
 
 function equalFrequency(word) {
     let arr = word.split("");
-    let repNum = 0;
+    let repNum = []
     for (let i = 0; i < arr.length; i++) {
-        let firstLet = arr[i];
+        let currentLetI = arr[i];
         let rep = 0;
         for (let n = 0; n < arr.length; n++) {
-            let secLet = arr[n];
-            if (firstLet == secLet) {
-                rep++;
-            }
-            if (n == arr.length - 1) {
-                if (rep == 2) {
-                    repNum++;
-                } else if (rep > 2) {
-                    return false;
-                }
+            let currentLetN = arr[n];
+            if(currentLetI == currentLetN) {
+                rep++
+                repNum[i] = rep;
             }
         }
     }
-    if (repNum == 2) {
-        return true;
-    } else if (repNum > 2) {
-        return false;
+    let uniq = new Set(repNum)
+    let setArr = []
+    uniq.forEach((u) => {
+        setArr.push(u);
+    })
+    console.log(repNum, setArr)
+    if (uniq.size == 1) {
+        if (setArr[0] == 1) {
+            return true
+        } else {
+            return false
+        }
+    } else if (uniq.size == 2) {
+        if (setArr[0] == setArr[1] + 1 || setArr[0] == setArr[1] - 1 ) {
+            return true
+        } else {
+            return false
+        }
     }
-    return false;
 }
 // equalFrequency(word1)
 console.log(equalFrequency(word1));
