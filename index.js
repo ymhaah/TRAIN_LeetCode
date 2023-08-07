@@ -123,6 +123,40 @@
 
 // ####################################################
 
+// pascals-triangle
+// link: https://leetcode.com/problems/pascals-triangle/
+
+// Given an integer numRows, return the first numRows of Pascal's triangle.
+// In Pascal's triangle, each number is the sum of the two numbers directly above it as shown
+
+// Example 1:
+
+// Input: numRows = 5
+// Output: [[1],[1,1],[1,2,1],[1,3,3,1],[1,4,6,4,1]]
+
+// function pascals(numRows) {
+//     let pasArr = [[1]];
+//     for (let i = 1; i < numRows; i++) {
+//         let row = [];
+//         for (let n = 0; n <= i; n++) {
+//             let same = pasArr[i - 1][n] ? pasArr[i - 1][n] : 0;
+//             let prev = pasArr[i - 1][n - 1] ? pasArr[i - 1][n - 1] : 0;
+//             row[n] = same + prev;
+//         }
+//         pasArr.push(row);
+//     }
+//     return pasArr;
+// }
+
+// console.log(pascals(5));
+// Output: [[1],[1,1],[1,2,1],[1,3,3,1],[1,4,6,4,1]]
+
+/*
+Notes: The idea is that each element is equal to the sum of the element in the previous row in the same index + index -1
+*/
+
+// ####################################################
+
 // Remove Letter To Equalize Frequency
 // link: https://leetcode.com/problems/remove-letter-to-equalize-frequency/
 
@@ -148,42 +182,41 @@
 // Explanation: We must delete a character, so either the frequency of "a" is 1 and the frequency of "z" is 2, or vice versa.
 //  It is impossible to make all present letters have equal frequency.
 
-let word1 = "ddaccb";
+// let word1 = "ddaccb";
 
-
-function equalFrequency(word) {
-    let arr = word.split("");
-    let repNum = []
-    for (let i = 0; i < arr.length; i++) {
-        let currentLetI = arr[i];
-        let rep = 0;
-        for (let n = 0; n < arr.length; n++) {
-            let currentLetN = arr[n];
-            if(currentLetI == currentLetN) {
-                rep++
-                repNum[i] = rep;
-            }
-        }
-    }
-    let uniq = new Set(repNum)
-    let setArr = []
-    uniq.forEach((u) => {
-        setArr.push(u);
-    })
-    console.log(repNum, setArr)
-    if (uniq.size == 1) {
-        if (setArr[0] == 1) {
-            return true
-        } else {
-            return false
-        }
-    } else if (uniq.size == 2) {
-        if (setArr[0] == setArr[1] + 1 || setArr[0] == setArr[1] - 1 ) {
-            return true
-        } else {
-            return false
-        }
-    }
-}
-// equalFrequency(word1)
-console.log(equalFrequency(word1));
+// function equalFrequency(word) {
+//     let arr = word.split("");
+//     let repNum = []
+//     for (let i = 0; i < arr.length; i++) {
+//         let currentLetI = arr[i];
+//         let rep = 0;
+//         for (let n = 0; n < arr.length; n++) {
+//             let currentLetN = arr[n];
+//             if(currentLetI == currentLetN) {
+//                 rep++
+//                 repNum[i] = rep;
+//             }
+//         }
+//     }
+//     let uniq = new Set(repNum)
+//     let setArr = []
+//     uniq.forEach((u) => {
+//         setArr.push(u);
+//     })
+//     console.log(repNum, setArr)
+//     if (uniq.size == 1) {
+//         if (setArr[0] == 1) {
+//             return true
+//         } else {
+//             return false
+//         }
+//     } else if (uniq.size == 2) {
+//         if (setArr[0] == setArr[1] + 1 || setArr[0] == setArr[1] - 1 ) {
+//             return true
+//         } else {
+//             return false
+//         }
+//     }
+// }
+// // equalFrequency(word1)
+// console.log(equalFrequency(word1));
