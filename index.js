@@ -157,21 +157,61 @@ Notes: The idea is that each element is equal to the sum of the element in the p
 
 // ####################################################
 
-// Single Number
-// link: https://leetcode.com/problems/single-number/
+// valid anagram
+// link: https://leetcode.com/problems/valid-anagram/
 
-// Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
+// Given two strings s and t, return true if t is an anagram of s, and false otherwise.
 
-// You must implement a solution with a linear runtime complexity and use only constant extra space.
+// An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
 
 // Example 1:
 
-// Input: nums = [2,2,1]
-// Output: 1
+// Input: s = "anagram", t = "nagaram"
+// Output: true
+// Example 2:
 
-function singleNumber(nums) {}
+// Input: s = "rat", t = "car"
+// Output: false
 
-console.log(singleNumber([2, 2, 1]));
+// let s = "anagram";
+// let t = "nagaram";
+
+// function isAnagram(s, t) {
+//     let sArr = s.split("");
+//     let tArr = t.split("");
+
+//     if (sArr.length != tArr.length) {
+//         return false;
+//     }
+
+//     let hashMapS = {};
+//     let hashMapT = {};
+
+//     for (let i = 0; i < sArr.length; i++) {
+//         if (hashMapS[sArr[i]]) {
+//             hashMapS[sArr[i]]++;
+//         } else {
+//             hashMapS[sArr[i]] = 1;
+//         }
+//     }
+//     for (let i = 0; i < tArr.length; i++) {
+//         if (hashMapT[tArr[i]]) {
+//             hashMapT[tArr[i]]++;
+//         } else {
+//             hashMapT[tArr[i]] = 1;
+//         }
+//     }
+
+//     for (str in hashMapS) {
+//         if (hashMapS[str] != hashMapT[str]) {
+//             return false;
+//         }
+//     }
+
+//     return true;
+// }
+
+// console.log(isAnagram(s, t));
 
 // ####################################################
 
@@ -200,41 +240,59 @@ console.log(singleNumber([2, 2, 1]));
 // Explanation: We must delete a character, so either the frequency of "a" is 1 and the frequency of "z" is 2, or vice versa.
 //  It is impossible to make all present letters have equal frequency.
 
-// let word1 = "ddaccb";
+let word1 = "aabbccc";
 
-// function equalFrequency(word) {
-//     let arr = word.split("");
-//     let repNum = []
-//     for (let i = 0; i < arr.length; i++) {
-//         let currentLetI = arr[i];
-//         let rep = 0;
-//         for (let n = 0; n < arr.length; n++) {
-//             let currentLetN = arr[n];
-//             if(currentLetI == currentLetN) {
-//                 rep++
-//                 repNum[i] = rep;
-//             }
-//         }
-//     }
-//     let uniq = new Set(repNum)
-//     let setArr = []
-//     uniq.forEach((u) => {
-//         setArr.push(u);
-//     })
-//     console.log(repNum, setArr)
-//     if (uniq.size == 1) {
-//         if (setArr[0] == 1) {
-//             return true
-//         } else {
-//             return false
-//         }
-//     } else if (uniq.size == 2) {
-//         if (setArr[0] == setArr[1] + 1 || setArr[0] == setArr[1] - 1 ) {
-//             return true
-//         } else {
-//             return false
-//         }
-//     }
+function equalFrequency(word) {
+    let arr = word.split("");
+
+    let hashMap = {};
+
+    for (let i = 0; i < arr.length; i++) {
+        if (hashMap[arr[i]]) {
+            hashMap[arr[i]]++;
+        } else {
+            hashMap[arr[i]] = 1;
+        }
+    }
+    let len = 0;
+    let len2 = 0;
+    for (str1 in hashMap) {
+        ++len;
+
+        for (str2 in hashMap) {
+            if (hashMap[str1] - 1 == hashMap[str2]) {
+                ++len2;
+            }
+        }
+    }
+    console.log(len, len2);
+    if (len == len2 + 1) {
+        return true;
+    }
+    return false;
+}
+
+console.log(equalFrequency(word1));
+
+// ####################################################
+
+// Single Number
+// link: https://leetcode.com/problems/single-number/
+
+// Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
+
+// You must implement a solution with a linear runtime complexity and use only constant extra space.
+
+// Example 1:
+
+// Input: nums = [2,2,1]
+// Output: 1
+
+// function singleNumber(nums) {
+//     for (let i = 0; i < nums.length - 1; i++) {}
 // }
-// // equalFrequency(word1)
-// console.log(equalFrequency(word1));
+
+// console.log(singleNumber([2, 1, 2]));
+// Output: 1
+
+// ####################################################
