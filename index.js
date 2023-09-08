@@ -240,7 +240,7 @@ Notes: The idea is that each element is equal to the sum of the element in the p
 // Explanation: We must delete a character, so either the frequency of "a" is 1 and the frequency of "z" is 2, or vice versa.
 //  It is impossible to make all present letters have equal frequency.
 
-let word1 = "aabbccc";
+let word1 = "ddaccb";
 
 function equalFrequency(word) {
     let arr = word.split("");
@@ -254,20 +254,48 @@ function equalFrequency(word) {
             hashMap[arr[i]] = 1;
         }
     }
-    let len = 0;
-    let len2 = 0;
-    for (str1 in hashMap) {
-        ++len;
 
-        for (str2 in hashMap) {
-            if (hashMap[str1] - 1 == hashMap[str2]) {
-                ++len2;
-            }
+    let friq = Array.from(Object.values(hashMap));
+
+    if (
+        friq.every((f) => {
+            return f == friq[0];
+        })
+    ) {
+        if (
+            friq.every((f) => {
+                return f == 1;
+            })
+        ) {
+            return true;
+        } else {
+            return false;
         }
     }
-    console.log(len, len2);
-    if (len == len2 + 1) {
-        return true;
+
+    console.log(friq);
+    for (let i = 0; i < friq.length; i++) {
+        friq[i] = friq[i] - 1;
+        friq.splice(i, 1);
+        if (friq[i] == 0) {
+            if (
+                friq.every((f) => {
+                    return f == friq[0];
+                })
+            ) {
+                return true;
+            }
+        } else {
+            console.log(friq);
+            if (
+                friq.every((f) => {
+                    return f == friq[0];
+                })
+            ) {
+                return true;
+            }
+            friq[i] = friq[i] + 1;
+        }
     }
     return false;
 }
