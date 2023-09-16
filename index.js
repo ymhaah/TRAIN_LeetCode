@@ -215,7 +215,52 @@ Notes: The idea is that each element is equal to the sum of the element in the p
 
 // ####################################################
 
-// Remove Letter To Equalize Frequency
+// Contains Duplicate
+
+// link: https://leetcode.com/problems/contains-duplicate/
+
+// Given an integer array nums, return true if any value appears at least twice in the array,
+// and return false if every element is distinct.
+
+// Example 1:
+
+// Input: nums = [1,2,3,1]
+// Output: true
+// Example 2:
+
+// Input: nums = [1,2,3,4]
+// Output: false
+
+// let nums = [1, 1, 4, 2, 3];
+
+// function containsDuplicate(nums) {
+//     let hashMap = new Set();
+
+//     let len = nums.length;
+
+//     while (len--) {
+//         if (hashMap.has(nums[len])) {
+//             return true;
+//         } else {
+//             hashMap.add(nums[len]);
+//         }
+//     }
+
+//     // for (let i = 0; i < nums.length; i++) {
+//     //     if (hashMap.has(nums[i])) {
+//     //         return true;
+//     //     } else {
+//     //         hashMap.add(nums[i]);
+//     //     }
+//     // }
+//     return false;
+// }
+
+// console.log("containsDuplicate:", containsDuplicate(nums));
+
+// ####################################################
+
+// Remove Letter To Equalize Frequency (not)
 // link: https://leetcode.com/problems/remove-letter-to-equalize-frequency/
 
 // You are given a 0-indexed string word, consisting of lowercase English letters.
@@ -240,71 +285,71 @@ Notes: The idea is that each element is equal to the sum of the element in the p
 // Explanation: We must delete a character, so either the frequency of "a" is 1 and the frequency of "z" is 2, or vice versa.
 //  It is impossible to make all present letters have equal frequency.
 
-let word1 = "ddaccb";
+// let word1 = "ddaccb";
 
-function equalFrequency(word) {
-    let arr = word.split("");
+// function equalFrequency(word) {
+//     let arr = word.split("");
 
-    let hashMap = {};
+//     let hashMap = {};
 
-    for (let i = 0; i < arr.length; i++) {
-        if (hashMap[arr[i]]) {
-            hashMap[arr[i]]++;
-        } else {
-            hashMap[arr[i]] = 1;
-        }
-    }
+//     for (let i = 0; i < arr.length; i++) {
+//         if (hashMap[arr[i]]) {
+//             hashMap[arr[i]]++;
+//         } else {
+//             hashMap[arr[i]] = 1;
+//         }
+//     }
 
-    let friq = Array.from(Object.values(hashMap));
+//     let friq = Array.from(Object.values(hashMap));
 
-    if (
-        friq.every((f) => {
-            return f == friq[0];
-        })
-    ) {
-        if (
-            friq.every((f) => {
-                return f == 1;
-            })
-        ) {
-            return true;
-        } else {
-            return false;
-        }
-    }
+//     if (
+//         friq.every((f) => {
+//             return f == friq[0];
+//         })
+//     ) {
+//         if (
+//             friq.every((f) => {
+//                 return f == 1;
+//             })
+//         ) {
+//             return true;
+//         } else {
+//             return false;
+//         }
+//     }
 
-    console.log(friq);
-    for (let i = 0; i < friq.length; i++) {
-        friq[i] = friq[i] - 1;
-        friq.splice(i, 1);
-        if (friq[i] == 0) {
-            if (
-                friq.every((f) => {
-                    return f == friq[0];
-                })
-            ) {
-                return true;
-            }
-        } else {
-            console.log(friq);
-            if (
-                friq.every((f) => {
-                    return f == friq[0];
-                })
-            ) {
-                return true;
-            }
-            friq[i] = friq[i] + 1;
-        }
-    }
-    return false;
-}
+//     console.log(friq);
+//     for (let i = 0; i < friq.length; i++) {
+//         friq[i] = friq[i] - 1;
+//         friq.splice(i, 1);
+//         if (friq[i] == 0) {
+//             if (
+//                 friq.every((f) => {
+//                     return f == friq[0];
+//                 })
+//             ) {
+//                 return true;
+//             }
+//         } else {
+//             console.log(friq);
+//             if (
+//                 friq.every((f) => {
+//                     return f == friq[0];
+//                 })
+//             ) {
+//                 return true;
+//             }
+//             friq[i] = friq[i] + 1;
+//         }
+//     }
+//     return false;
+// }
 
-console.log(equalFrequency(word1));
+// console.log(equalFrequency(word1));
 
 // ####################################################
 
-// Single Number
+// Single Number (not)
 // link: https://leetcode.com/problems/single-number/
 
 // Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
