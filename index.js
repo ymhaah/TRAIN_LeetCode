@@ -282,20 +282,35 @@ Notes: The idea is that each element is equal to the sum of the element in the p
 // Output: 0
 // Explanation: In this case, no transactions are done and the max profit = 0.
 
-let prices = [2, 4, 1];
+let prices = [7, 5, 2, 1, 4];
 
-// p = [2,4,1]
-// afterMinArr = [] => len =0
-// p = [2, 4]
-// afterMinArr = [4]
-// min in p = 2
-// max in afterMinArr= 4
+// p = [3, 2, 6, 1, 2, 3]
+// afterMinArr = [1, 2, 3]
+// beforeMinArr = [3, 2, 6]
+// max in afterMinArr 3
+// max in p 6
 
 function maxProfit(prices) {
     let afterMinArr = prices.slice(prices.indexOf(Math.min(...prices)) + 1);
+    let beforeMinArr = prices.slice(
+        undefined,
+        prices.indexOf(Math.min(...prices))
+    );
 
     if (afterMinArr.length == 0) {
+        if (prices.length == 0) {
+            console.log("t");
+            return 0;
+        }
+        return maxProfit(
+            prices.slice(undefined, prices.indexOf(Math.min(...prices)))
+        );
     }
+
+    return (
+        afterMinArr[afterMinArr.indexOf(Math.max(...afterMinArr))] -
+        prices[prices.indexOf(Math.min(...prices))]
+    );
 }
 console.log("maxProfit:", maxProfit(prices));
 
