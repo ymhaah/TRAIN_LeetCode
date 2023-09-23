@@ -260,9 +260,64 @@ Notes: The idea is that each element is equal to the sum of the element in the p
 
 // ####################################################
 
+// Binary Search
+
+// link: https://leetcode.com/problems/binary-search/
+
+// Given an array of integers nums which is sorted in ascending order, and an integer target, write a function to search target in nums. If target exists, then return its index. Otherwise, return -1.
+
+// You must write an algorithm with O(log n) runtime complexity.
+
+// Example 1:
+
+// Input: nums = [-1,0,3,5,9,12], target = 9
+// Output: 4
+// Explanation: 9 exists in nums and its index is 4
+// Example 2:
+
+// Input: nums = [-1,0,3,5,9,12], target = 2
+// Output: -1
+// Explanation: 2 does not exist in nums so return -1
+
+let nums = [-1, 0, 3, 5, 9, 12];
+let target = -2;
+
+function search(nums, target) {
+    // let start = 0;
+    // let end = nums.length - 1;
+    // while (end >= start) {
+    //     let mid = Math.floor((start + end) / 2);
+    //     if (nums[mid] == target) {
+    //         return mid;
+    //     } else if (nums[mid] > target) {
+    //         end = mid - 1;
+    //     } else if (nums[mid] < target) {
+    //         start = mid + 1;
+    //     }
+    // }
+    // return -1;
+    // (not)
+    // if (nums.length == 0) {
+    //     return -1;
+    // }
+    // let mid = Math.floor(nums.length - 1 / 2);
+    // if (nums[mid] == target) {
+    //     return mid;
+    // }
+    // if (nums[mid] > target) {
+    //     return search(nums.slice(0, mid), target);
+    // }
+    // if (nums[mid] < target) {
+    //     return search(nums.slice(mid - 1, nums.length - 1), target);
+    // }
+}
+console.log(search(nums, target));
+
+// ####################################################
+
 // link: https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
 
-// Best Time to Buy and Sell Stock
+// Best Time to Buy and Sell Stock (not)
 
 // You are given an array prices where prices[i] is the price of a given stock on the ith day.
 // You want to maximize your profit by choosing a single day to buy
@@ -282,7 +337,7 @@ Notes: The idea is that each element is equal to the sum of the element in the p
 // Output: 0
 // Explanation: In this case, no transactions are done and the max profit = 0.
 
-let prices = [7, 5, 2, 1, 4];
+// let prices = [7, 5, 2, 1, 4];
 
 // p = [3, 2, 6, 1, 2, 3]
 // afterMinArr = [1, 2, 3]
@@ -290,29 +345,29 @@ let prices = [7, 5, 2, 1, 4];
 // max in afterMinArr 3
 // max in p 6
 
-function maxProfit(prices) {
-    let afterMinArr = prices.slice(prices.indexOf(Math.min(...prices)) + 1);
-    let beforeMinArr = prices.slice(
-        undefined,
-        prices.indexOf(Math.min(...prices))
-    );
+// function maxProfit(prices) {
+//     let afterMinArr = prices.slice(prices.indexOf(Math.min(...prices)) + 1);
+//     let beforeMinArr = prices.slice(
+//         undefined,
+//         prices.indexOf(Math.min(...prices))
+//     );
 
-    if (afterMinArr.length == 0) {
-        if (prices.length == 0) {
-            console.log("t");
-            return 0;
-        }
-        return maxProfit(
-            prices.slice(undefined, prices.indexOf(Math.min(...prices)))
-        );
-    }
+//     if (afterMinArr.length == 0) {
+//         if (prices.length == 0) {
+//             console.log("t");
+//             return 0;
+//         }
+//         return maxProfit(
+//             prices.slice(undefined, prices.indexOf(Math.min(...prices)))
+//         );
+//     }
 
-    return (
-        afterMinArr[afterMinArr.indexOf(Math.max(...afterMinArr))] -
-        prices[prices.indexOf(Math.min(...prices))]
-    );
-}
-console.log("maxProfit:", maxProfit(prices));
+//     return (
+//         afterMinArr[afterMinArr.indexOf(Math.max(...afterMinArr))] -
+//         prices[prices.indexOf(Math.min(...prices))]
+//     );
+// }
+// console.log("maxProfit:", maxProfit(prices));
 
 // ####################################################
 
