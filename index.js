@@ -279,39 +279,83 @@ Notes: The idea is that each element is equal to the sum of the element in the p
 // Output: -1
 // Explanation: 2 does not exist in nums so return -1
 
-let nums = [-1, 0, 3, 5, 9, 12];
-let target = -2;
+// let nums = [-1, 0, 3, 5, 9, 12];
+// let target = -2;
 
-function search(nums, target) {
-    // let start = 0;
-    // let end = nums.length - 1;
-    // while (end >= start) {
-    //     let mid = Math.floor((start + end) / 2);
-    //     if (nums[mid] == target) {
-    //         return mid;
-    //     } else if (nums[mid] > target) {
-    //         end = mid - 1;
-    //     } else if (nums[mid] < target) {
-    //         start = mid + 1;
-    //     }
-    // }
-    // return -1;
-    // (not)
-    // if (nums.length == 0) {
-    //     return -1;
-    // }
-    // let mid = Math.floor(nums.length - 1 / 2);
-    // if (nums[mid] == target) {
-    //     return mid;
-    // }
-    // if (nums[mid] > target) {
-    //     return search(nums.slice(0, mid), target);
-    // }
-    // if (nums[mid] < target) {
-    //     return search(nums.slice(mid - 1, nums.length - 1), target);
-    // }
-}
-console.log(search(nums, target));
+// function search(nums, target) {
+//     // let start = 0;
+//     // let end = nums.length - 1;
+//     // while (end >= start) {
+//     //     let mid = Math.floor((start + end) / 2);
+//     //     if (nums[mid] == target) {
+//     //         return mid;
+//     //     } else if (nums[mid] > target) {
+//     //         end = mid - 1;
+//     //     } else if (nums[mid] < target) {
+//     //         start = mid + 1;
+//     //     }
+//     // }
+//     // return -1;
+//     // (not)
+//     // if (nums.length == 0) {
+//     //     return -1;
+//     // }
+//     // let mid = Math.floor(nums.length - 1 / 2);
+//     // if (nums[mid] == target) {
+//     //     return mid;
+//     // }
+//     // if (nums[mid] > target) {
+//     //     return search(nums.slice(0, mid), target);
+//     // }
+//     // if (nums[mid] < target) {
+//     //     return search(nums.slice(mid - 1, nums.length - 1), target);
+//     // }
+// }
+// console.log(search(nums, target));
+
+// ####################################################
+
+// Search Insert Position
+
+// link: https://leetcode.com/problems/search-insert-position/
+
+// Given a sorted array of distinct integers and a target value,
+//  return the index if the target is found. If not,
+//  return the index where it would be if it were inserted in order.
+
+// You must write an algorithm with O(log n) runtime complexity.
+
+// Example 1:
+
+// Input: nums = [1,3,5,6], target = 5
+// Output: 2
+// Example 2:
+
+// Input: nums = [1,3,5,6], target = 2
+// Output: 1
+
+// let nums = [1, 3, 5, 6];
+// let target = 0;
+
+// function searchInsert(nums, target) {
+//     let start = 0;
+//     let end = nums.length - 1;
+//     let center;
+
+//     while (end >= start) {
+//         center = Math.floor((start + end) / 2);
+//         if (target == nums[center]) {
+//             return center;
+//         } else if (target > nums[center]) {
+//             start = center + 1;
+//         } else if (target < nums[center]) {
+//             end = center - 1;
+//         }
+//     }
+//     return start;
+// }
+
+// console.log(searchInsert(nums, target));
 
 // ####################################################
 
