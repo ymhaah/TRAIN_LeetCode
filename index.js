@@ -374,6 +374,49 @@ Notes: The idea is that each element is equal to the sum of the element in the p
 // }
 // console.log("intersect:", intersect(nums1, nums2));
 // ####################################################
+// link: https://leetcode.com/problems/sort-an-array/
+// sort an array
+// Given an array of integers nums, sort the array in ascending order and return it.
+// You must solve the problem without using any built-in functions in O(n log(n)) time complexity and with the smallest space complexity possible.
+// Input: head = [-1,5,3,4,0]
+// Output: [-1,0,3,4,5]
+let head = [0, 0, 0, 1, 0];
+function sortList(head) {
+    let l = 0;
+    let r = head.length - 1;
+    function quickSort(arr, l, r) {
+        if (l >= r) {
+            return arr;
+        }
+        function partition(arr, l, r) {
+            let j = l - 1;
+            let ele = r;
+            for (let k = l; k <= ele - 1; k++) {
+                if (arr[k] < arr[ele]) {
+                    j++;
+                    let s1 = arr[j];
+                    let s2 = arr[k];
+                    arr[j] = s2;
+                    arr[k] = s1;
+                }
+            }
+            let s3 = arr[ele];
+            let s4 = arr[j + 1];
+            arr[j + 1] = s3;
+            arr[ele] = s4;
+            return j + 1;
+        }
+        let pos = partition(arr, l, r);
+        if (l < r) {
+            quickSort(arr, l, pos - 1);
+            quickSort(arr, pos + 1, r);
+        }
+        return arr;
+    }
+    return quickSort(head, l, r);
+}
+console.log(sortList(head));
+// ####################################################
 // link: https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
 // Best Time to Buy and Sell Stock (not)
 // You are given an array prices where prices[i] is the price of a given stock on the ith day.
