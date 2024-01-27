@@ -503,50 +503,110 @@ Notes: The idea is that each element is equal to the sum of the element in the p
 // Input: head = [-1,5,3,4,0]
 // Output: [-1,0,3,4,5]
 
-let head = [0, 0, 0, 1, 0];
+// let head = [0, 0, 0, 1, 0];
 
-function sortList(head: number[]): number[] | null {
-    let l = 0;
-    let r = head.length - 1;
+// function sortList(head: number[]): number[] | null {
+//     let l = 0;
+//     let r = head.length - 1;
 
-    function quickSort(arr: number[], l: number, r: number) {
-        if (l >= r) {
-            return arr;
+//     function quickSort(arr: number[], l: number, r: number) {
+//         if (l >= r) {
+//             return arr;
+//         }
+
+//         function partition(arr: number[], l: number, r: number): number {
+//             let j = l - 1;
+//             let ele = r;
+
+//             for (let k = l; k <= ele - 1; k++) {
+//                 if (arr[k] < arr[ele]) {
+//                     j++;
+//                     let s1 = arr[j];
+//                     let s2 = arr[k];
+//                     arr[j] = s2;
+//                     arr[k] = s1;
+//                 }
+//             }
+//             let s3 = arr[ele];
+//             let s4 = arr[j + 1];
+//             arr[j + 1] = s3;
+//             arr[ele] = s4;
+//             return j + 1;
+//         }
+
+//         let pos = partition(arr, l, r);
+
+//         if (l < r) {
+//             quickSort(arr, l, pos - 1);
+//             quickSort(arr, pos + 1, r);
+//         }
+
+//         return arr;
+//     }
+//     return quickSort(head, l, r);
+// }
+
+// console.log(sortList(head));
+
+// ####################################################
+
+// Move Zeroes
+
+// link: https://leetcode.com/problems/move-zeroes/description/
+
+// Given an integer array nums, move all 0's to the end of it while maintaining the relative order of the non-zero elements.
+
+// Note that you must do this in-place without making a copy of the array.
+
+// Example 1:
+
+// Input: nums = [0,1,0,3,12]
+// Output: [1,3,12,0,0]
+// Example 2:
+
+// Input: nums = [0]
+// Output: [0]
+
+let nums = [0, 1, 0, 3, 12];
+
+function moveZeroes(nums: number[]): number[] {
+    function quickSort(
+        arr: number[],
+        start: number = 0,
+        end: number = arr.length - 1
+    ) {
+        if (start < end) {
+            let pos = partition(arr, start, end);
+            quickSort(arr, start, pos - 1);
+            quickSort(arr, pos + 1, end);
         }
+        return arr;
 
-        function partition(arr: number[], l: number, r: number): number {
-            let j = l - 1;
-            let ele = r;
+        function partition(arr: number[], start: number, end: number): number {
+            let newStart = start - 1;
+            let newEnd = end;
 
-            for (let k = l; k <= ele - 1; k++) {
-                if (arr[k] < arr[ele]) {
-                    j++;
-                    let s1 = arr[j];
-                    let s2 = arr[k];
-                    arr[j] = s2;
-                    arr[k] = s1;
+            for (let i = start; i <= newEnd - 1; i++) {
+                if (arr[i] < arr[newEnd]) {
+                    newStart++;
+                    let swap1 = arr[newStart];
+                    let swap2 = arr[i];
+                    arr[i] = swap1;
+                    arr[newStart] = swap2;
                 }
             }
-            let s3 = arr[ele];
-            let s4 = arr[j + 1];
-            arr[j + 1] = s3;
-            arr[ele] = s4;
-            return j + 1;
+            let swap3 = arr[newEnd];
+            let swap4 = arr[newStart + 1];
+            arr[newStart + 1] = swap3;
+            arr[newEnd] = swap4;
+            return newStart + 1;
         }
-
-        let pos = partition(arr, l, r);
-
-        if (l < r) {
-            quickSort(arr, l, pos - 1);
-            quickSort(arr, pos + 1, r);
-        }
-
-        return arr;
     }
-    return quickSort(head, l, r);
+    return quickSort(nums);
 }
 
-console.log(sortList(head));
+moveZeroes(nums);
+console.log(nums);
 
 // ####################################################
 
