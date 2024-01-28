@@ -419,7 +419,8 @@ Notes: The idea is that each element is equal to the sum of the element in the p
 // ####################################################
 // Move Zeroes
 // link: https://leetcode.com/problems/move-zeroes/description/
-// Given an integer array nums, move all 0's to the end of it while maintaining the relative order of the non-zero elements.
+// Given an integer array nums, move all 0's to the end of it while maintaining
+//  the relative order of the non-zero elements.
 // Note that you must do this in-place without making a copy of the array.
 // Example 1:
 // Input: nums = [0,1,0,3,12]
@@ -427,38 +428,51 @@ Notes: The idea is that each element is equal to the sum of the element in the p
 // Example 2:
 // Input: nums = [0]
 // Output: [0]
-let nums = [0, 1, 0, 3, 12];
-function moveZeroes(nums) {
-    // TODO: make a sorting fun template that is easy to reuse and modify
-    function quickSort(arr, start = 0, end = arr.length - 1) {
-        if (start < end) {
-            let pos = partition(arr, start, end);
-            quickSort(arr, start, pos - 1);
-            quickSort(arr, pos + 1, end);
-        }
-        return arr;
-        function partition(arr, start, end) {
-            let newStart = start - 1;
-            let newEnd = end;
-            for (let i = start; i <= newEnd - 1; i++) {
-                if (arr[i] < arr[newEnd]) {
-                    newStart++;
-                    let swap1 = arr[newStart];
-                    let swap2 = arr[i];
-                    arr[i] = swap1;
-                    arr[newStart] = swap2;
-                }
-            }
-            let swap3 = arr[newEnd];
-            let swap4 = arr[newStart + 1];
-            arr[newStart + 1] = swap3;
-            arr[newEnd] = swap4;
-            return newStart + 1;
-        }
+let nums = [1, 0, 0, 0, 12];
+console.log(nums);
+for (let i = 0; i <= nums.length - 1; i++) {
+    // console.log(nums[i], i);
+    if (nums[i] === 0) {
+        console.log(i);
+        nums.splice(i, 1);
+        nums.push(0);
+        // i--;
     }
-    return quickSort(nums);
 }
-moveZeroes(nums);
+// function moveZeroes(nums: number[]): void {
+//     function quickSort(
+//         arr: number[],
+//         start: number = 0,
+//         end: number = arr.length - 1
+//     ) {
+//         if (start < end) {
+//             let pos = partition(arr, start, end);
+//             quickSort(arr, start, pos - 1);
+//             quickSort(arr, pos + 1, end);
+//         }
+//         return arr;
+//         function partition(arr: number[], start: number, end: number): number {
+//             let newStart = start - 1;
+//             let newEnd = end;
+//             for (let i = start; i <= newEnd - 1; i++) {
+//                 if (arr[i] < arr[newEnd]) {
+//                     newStart++;
+//                     let swap1 = arr[newStart];
+//                     let swap2 = arr[i];
+//                     arr[i] = swap1;
+//                     arr[newStart] = swap2;
+//                 }
+//             }
+//             let swap3 = arr[newEnd];
+//             let swap4 = arr[newStart + 1];
+//             arr[newStart + 1] = swap3;
+//             arr[newEnd] = swap4;
+//             return newStart + 1;
+//         }
+//     }
+//     quickSort(nums);
+// }
+// moveZeroes(nums);
 console.log(nums);
 // ####################################################
 // link: https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
