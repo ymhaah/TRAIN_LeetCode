@@ -1,6 +1,6 @@
 // ! Quick-Sort
 
-// Improved code with clarified variable names and comments for explanation
+// Link: https://www.youtube.com/watch?v=0SkOjNaO1XY&list=PLBZBJbE_rGRV8D7XZ08LK6z-4zPoWzu5H&index=11&ab_channel=CSDojo
 
 let numbersToSort = [0, 1, 0, 3, 12];
 
