@@ -71,3 +71,36 @@ function quickSort(
 quickSort(numbersToSort);
 
 // ####################################################
+
+// ! Hash-Function
+
+/**
+ * Creates a hash map to count the occurrences of elements in an array.
+ * @param {T[]} array - The input array.
+ * @returns {Map<T, number>} - The resulting hash map with element counts.
+ */
+function hashMap<T>(array: T[]): Map<T, number> {
+    const elementCountMap = new Map<T, number>();
+
+    // Iterate through the array to count element occurrences
+    for (let i = 0; i < array.length; i++) {
+        const currentElement = array[i];
+
+        // Check if the element is already in the map
+        if (elementCountMap.has(currentElement)) {
+            // Increment the count if the element exists
+            elementCountMap.set(
+                currentElement,
+                elementCountMap.get(currentElement)! + 1
+            );
+        } else {
+            // Set the count to 1 if the element is encountered for the first time
+            elementCountMap.set(currentElement, 1);
+        }
+    }
+
+    // Return the resulting hash map with element counts
+    return elementCountMap;
+}
+
+hashMap<number>([1, 2, 3, 4, 5, 6]);
