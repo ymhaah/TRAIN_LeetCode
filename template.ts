@@ -1,3 +1,16 @@
+const array = [1, 2, 3, 4, 5];
+
+for (let i = 0; i <= array.length - 1; i++) {
+    console.log(array[i]);
+}
+
+// Reverse for loop
+for (let i = array.length - 1; i >= 0; i--) {
+    console.log(array[i]);
+}
+
+// ####################################################
+
 // ! Quick-Sort
 
 // Link: https://www.youtube.com/watch?v=0SkOjNaO1XY&list=PLBZBJbE_rGRV8D7XZ08LK6z-4zPoWzu5H&index=11&ab_channel=CSDojo
