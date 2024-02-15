@@ -11,6 +11,16 @@ for (let i = array.length - 1; i >= 0; i--) {
 
 // ####################################################
 
+// how to get a value with an index in a map & set
+
+const map = new Map();
+const set = new Set();
+
+let firstValueOfMap = [...map.values()][0];
+let firstValueOfSet = [...set][0];
+
+// ####################################################
+
 // ! Quick-Sort
 
 // Link: https://www.youtube.com/watch?v=0SkOjNaO1XY&list=PLBZBJbE_rGRV8D7XZ08LK6z-4zPoWzu5H&index=11&ab_channel=CSDojo
