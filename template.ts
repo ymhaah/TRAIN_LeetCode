@@ -21,6 +21,15 @@ let firstValueOfSet = [...set][0];
 
 // ####################################################
 
+// convert a number to a string & string to number
+
+let str = "1568";
+
+let number = parseInt(str, 10); // string to number
+str = number.toString(); // number to a string
+
+// ####################################################
+
 // ! Quick-Sort
 
 // Link: https://www.youtube.com/watch?v=0SkOjNaO1XY&list=PLBZBJbE_rGRV8D7XZ08LK6z-4zPoWzu5H&index=11&ab_channel=CSDojo
@@ -127,3 +136,30 @@ function hashMap<T>(array: T[]): Map<T, number> {
 }
 
 hashMap<number>([1, 2, 3, 4, 5, 6]);
+
+// ####################################################
+
+// ! Recursive function
+
+/**
+ * Recursive function to perform some operation on an input number.
+ * @param {number} input - The input number.
+ * @returns {number} - The result of the operation.
+ */
+function recursiveFunction(input: number): number {
+    // Base case: Check if the recursion should stop
+    if (input <= 0) {
+        // Return a base value or perform some final operation
+        return 1;
+    }
+
+    // Recursive case: Call the function with a modified parameter
+    const result = recursiveFunction(input - 1);
+
+    // Perform some operation with the result if needed
+    // For example, multiply the result by the current parameter
+    const modifiedResult = result * input;
+
+    return modifiedResult;
+}
+recursiveFunction(5);

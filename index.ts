@@ -717,7 +717,7 @@ Notes: The idea is that each element is equal to the sum of the element in the p
 
 // ####################################################
 
-// Single Number (not)
+// Single Number
 // link: https://leetcode.com/problems/single-number/
 
 // Given a non-empty array of integers nums,
@@ -783,10 +783,32 @@ Notes: The idea is that each element is equal to the sum of the element in the p
 // Incrementing by one gives 9 + 1 = 10.
 // Thus, the result should be [1,0].
 
-let digits = [4, 3, 2, 1];
+let digits = [9, 9];
 
 function plusOne(digits: number[]): number[] {
-    return digits;
+    function addOne(
+        arr: number[],
+        lastIndex: number = arr.length - 1
+    ): number[] {
+        if (lastIndex < 0) {
+            return [1, ...arr];
+        }
+        if (arr[lastIndex] !== 9) {
+            arr[lastIndex]++;
+            return arr;
+        } else {
+            if (arr.length === 1) {
+                return [1, 0];
+            }
+            arr[lastIndex] = 0;
+
+            addOne(arr, lastIndex - 1);
+        }
+
+        return arr;
+    }
+
+    return addOne(digits);
 }
 
 console.log(plusOne(digits));

@@ -540,7 +540,7 @@ Notes: The idea is that each element is equal to the sum of the element in the p
 // }
 // console.log(missingNumber(nums));
 // ####################################################
-// Single Number (not)
+// Single Number
 // link: https://leetcode.com/problems/single-number/
 // Given a non-empty array of integers nums,
 //  every element appears twice except for one. Find that single one.
@@ -587,9 +587,26 @@ Notes: The idea is that each element is equal to the sum of the element in the p
 // Explanation: The array represents the integer 9.
 // Incrementing by one gives 9 + 1 = 10.
 // Thus, the result should be [1,0].
-let digits = [4, 3, 2, 1];
+let digits = [9, 9];
 function plusOne(digits) {
-    return digits;
+    function addOne(arr, lastIndex = arr.length - 1) {
+        if (lastIndex < 0) {
+            return [1, ...arr];
+        }
+        if (arr[lastIndex] !== 9) {
+            arr[lastIndex]++;
+            return arr;
+        }
+        else {
+            if (arr.length === 1) {
+                return [1, 0];
+            }
+            arr[lastIndex] = 0;
+            addOne(arr, lastIndex - 1);
+        }
+        return arr;
+    }
+    return addOne(digits);
 }
 console.log(plusOne(digits));
 // ####################################################
