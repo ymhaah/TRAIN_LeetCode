@@ -587,20 +587,18 @@ Notes: The idea is that each element is equal to the sum of the element in the p
 // Explanation: The array represents the integer 9.
 // Incrementing by one gives 9 + 1 = 10.
 // Thus, the result should be [1,0].
-let digits = [9, 9];
+let digits = [9, 9, 1, 9, 8, 9];
 function plusOne(digits) {
     function addOne(arr, lastIndex = arr.length - 1) {
-        if (lastIndex < 0) {
-            return [1, ...arr];
+        if (lastIndex <= -1) {
+            arr.unshift(1);
+            return arr;
         }
         if (arr[lastIndex] !== 9) {
             arr[lastIndex]++;
             return arr;
         }
         else {
-            if (arr.length === 1) {
-                return [1, 0];
-            }
             arr[lastIndex] = 0;
             addOne(arr, lastIndex - 1);
         }
