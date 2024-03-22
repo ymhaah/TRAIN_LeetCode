@@ -783,33 +783,69 @@ Notes: The idea is that each element is equal to the sum of the element in the p
 // Incrementing by one gives 9 + 1 = 10.
 // Thus, the result should be [1,0].
 
-let digits = [9, 9, 1, 9, 8, 9];
+// let digits = [9, 9, 1, 9, 8, 9];
 
-function plusOne(digits: number[]): number[] {
-    function addOne(
-        arr: number[],
-        lastIndex: number = arr.length - 1
-    ): number[] {
-        if (lastIndex <= -1) {
-            arr.unshift(1);
-            return arr;
-        }
-        if (arr[lastIndex] !== 9) {
-            arr[lastIndex]++;
-            return arr;
-        } else {
-            arr[lastIndex] = 0;
+// function plusOne(digits: number[]): number[] {
+//     function addOne(
+//         arr: number[],
+//         lastIndex: number = arr.length - 1
+//     ): number[] {
+//         if (lastIndex <= -1) {
+//             arr.unshift(1);
+//             return arr;
+//         }
+//         if (arr[lastIndex] !== 9) {
+//             arr[lastIndex]++;
+//             return arr;
+//         } else {
+//             arr[lastIndex] = 0;
 
-            addOne(arr, lastIndex - 1);
-        }
+//             addOne(arr, lastIndex - 1);
+//         }
 
-        return arr;
-    }
+//         return arr;
+//     }
 
-    return addOne(digits);
+//     return addOne(digits);
+// }
+
+// console.log(plusOne(digits));
+
+// ####################################################
+
+// Valid Parentheses
+
+// Link: https://leetcode.com/problems/valid-parentheses/description/
+
+// Given a string s containing just the characters '(', ')', '{', '}', '[' and ']',
+//  determine if the input string is valid.
+
+// An input string is valid if:
+
+// Open brackets must be closed by the same type of brackets.
+// Open brackets must be closed in the correct order.
+// Every close bracket has a corresponding open bracket of the same type.
+
+// Example 1:
+
+// Input: s = "()"
+// Output: true
+// Example 2:
+
+// Input: s = "()[]{}"
+// Output: true
+// Example 3:
+
+// Input: s = "(]"
+// Output: false
+
+let s = "(]";
+
+function isValid(s: string): boolean {
+    return true;
 }
 
-console.log(plusOne(digits));
+console.log(isValid(s));
 
 // ####################################################
 

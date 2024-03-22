@@ -587,26 +587,29 @@ Notes: The idea is that each element is equal to the sum of the element in the p
 // Explanation: The array represents the integer 9.
 // Incrementing by one gives 9 + 1 = 10.
 // Thus, the result should be [1,0].
-let digits = [9, 9, 1, 9, 8, 9];
-function plusOne(digits) {
-    function addOne(arr, lastIndex = arr.length - 1) {
-        if (lastIndex <= -1) {
-            arr.unshift(1);
-            return arr;
-        }
-        if (arr[lastIndex] !== 9) {
-            arr[lastIndex]++;
-            return arr;
-        }
-        else {
-            arr[lastIndex] = 0;
-            addOne(arr, lastIndex - 1);
-        }
-        return arr;
-    }
-    return addOne(digits);
-}
-console.log(plusOne(digits));
+// let digits = [9, 9, 1, 9, 8, 9];
+// function plusOne(digits: number[]): number[] {
+//     function addOne(
+//         arr: number[],
+//         lastIndex: number = arr.length - 1
+//     ): number[] {
+//         if (lastIndex <= -1) {
+//             arr.unshift(1);
+//             return arr;
+//         }
+//         if (arr[lastIndex] !== 9) {
+//             arr[lastIndex]++;
+//             return arr;
+//         } else {
+//             arr[lastIndex] = 0;
+//             addOne(arr, lastIndex - 1);
+//         }
+//         return arr;
+//     }
+//     return addOne(digits);
+// }
+// console.log(plusOne(digits));
+// ####################################################
 // ####################################################
 // link: https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
 // Best Time to Buy and Sell Stock (not)
