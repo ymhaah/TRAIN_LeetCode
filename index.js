@@ -610,6 +610,65 @@ Notes: The idea is that each element is equal to the sum of the element in the p
 // }
 // console.log(plusOne(digits));
 // ####################################################
+// Valid Parentheses
+// Link: https://leetcode.com/problems/valid-parentheses/description/
+// Given a string s containing just the characters '(', ')', '{', '}', '[' and ']',
+//  determine if the input string is valid.
+// An input string is valid if:
+// Open brackets must be closed by the same type of brackets.
+// Open brackets must be closed in the correct order.
+// Every close bracket has a corresponding open bracket of the same type.
+// Example 1:
+// Input: s = "()"
+// Output: true
+// Example 2:
+// Input: s = "()[]{}"
+// Output: true
+// Example 3:
+// Input: s = "(]"
+// Output: false
+let s = "()[]{}";
+function isValid(s) {
+    let arr = s.split("");
+    if (arr.length % 2 !== 0 || arr.length === 0) {
+        return false;
+    }
+    if (arr[0] === ")" || arr[0] === "]" || arr[0] === "}") {
+        return false;
+    }
+    if (arr[arr.length - 1] === "(" ||
+        arr[arr.length - 1] === "[" ||
+        arr[arr.length - 1] === "{") {
+        return false;
+    }
+    let stack = [];
+    let map = new Map([
+        [")", "("],
+        ["}", "{"],
+        ["]", "["],
+    ]);
+    for (let i = 0; i < arr.length; i++) {
+        let currentB = arr[i];
+        if (currentB === ")" || currentB === "}" || currentB === "]") {
+        }
+        for (let x = i; x < arr.length; x++) {
+            if (currentB === "(" && arr[x] === ")") {
+                break;
+            }
+            else if (currentB === "{" && arr[x] === "}") {
+                break;
+            }
+            else if (currentB === "[" && arr[x] === "]") {
+                break;
+            }
+            else {
+                continue;
+            }
+        }
+    }
+    return true;
+}
+console.log(isValid(s));
 // ####################################################
 // link: https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
 // Best Time to Buy and Sell Stock (not)

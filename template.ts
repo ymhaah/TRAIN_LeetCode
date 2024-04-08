@@ -21,6 +21,20 @@ let firstValueOfSet = [...set][0];
 
 // ####################################################
 
+// convert a text to an array
+function textToArray(text: string): string[] {
+    return text.split("");
+}
+
+// ####################################################
+
+// check if a number is even or odd
+function isEven(number: number): boolean {
+    return number % 2 === 0;
+}
+
+// ####################################################
+
 // convert a number to a string & string to number
 
 let str = "1568";

@@ -839,9 +839,49 @@ Notes: The idea is that each element is equal to the sum of the element in the p
 // Input: s = "(]"
 // Output: false
 
-let s = "(]";
+let s = "()[]{}";
 
 function isValid(s: string): boolean {
+    let arr = s.split("");
+    if (arr.length % 2 !== 0 || arr.length === 0) {
+        return false;
+    }
+    if (arr[0] === ")" || arr[0] === "]" || arr[0] === "}") {
+        return false;
+    }
+    if (
+        arr[arr.length - 1] === "(" ||
+        arr[arr.length - 1] === "[" ||
+        arr[arr.length - 1] === "{"
+    ) {
+        return false;
+    }
+
+    let stack = [];
+    let map = new Map([
+        [")", "("],
+        ["}", "{"],
+        ["]", "["],
+    ]);
+
+    for (let i = 0; i < arr.length; i++) {
+        let currentB = arr[i];
+
+        if (currentB === ")" || currentB === "}" || currentB === "]") {
+        }
+
+        for (let x = i; x < arr.length; x++) {
+            if (currentB === "(" && arr[x] === ")") {
+                break;
+            } else if (currentB === "{" && arr[x] === "}") {
+                break;
+            } else if (currentB === "[" && arr[x] === "]") {
+                break;
+            } else {
+                continue;
+            }
+        }
+    }
     return true;
 }
 
