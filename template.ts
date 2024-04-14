@@ -1,4 +1,10 @@
 const array = [1, 2, 3, 4, 5];
+const obj = { a: 1, b: 2, c: 3 };
+const string = "abc";
+
+for (const char of string) {
+    // char takes the values 'a', 'b', 'c' in each iteration
+}
 
 for (let i = 0; i <= array.length - 1; i++) {
     console.log(array[i]);
@@ -7,6 +13,26 @@ for (let i = 0; i <= array.length - 1; i++) {
 // Reverse for loop
 for (let i = array.length - 1; i >= 0; i--) {
     console.log(array[i]);
+}
+
+// Iterates over the enumerable properties of an object
+for (let key in obj) {
+    console.log(key, obj[key]);
+}
+
+//  Iterates over the indices (or keys) of an array.
+for (const value in array) {
+    console.log(value);
+}
+
+// Iterates over the values of an iterable array
+for (const value of array) {
+    console.log(value);
+}
+
+// Iterates over the values of an iterable object (e.g., strings, maps, sets).
+for (const char of string) {
+    console.log(char);
 }
 
 // ####################################################

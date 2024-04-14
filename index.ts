@@ -839,53 +839,64 @@ Notes: The idea is that each element is equal to the sum of the element in the p
 // Input: s = "(]"
 // Output: false
 
-let s = "()[]{}";
+// let s = "()[]{}";
 
-function isValid(s: string): boolean {
-    let arr = s.split("");
-    if (arr.length % 2 !== 0 || arr.length === 0) {
-        return false;
-    }
-    if (arr[0] === ")" || arr[0] === "]" || arr[0] === "}") {
-        return false;
-    }
-    if (
-        arr[arr.length - 1] === "(" ||
-        arr[arr.length - 1] === "[" ||
-        arr[arr.length - 1] === "{"
-    ) {
-        return false;
-    }
+// function isValid(s: string): boolean {
+//     // Check for empty string or odd length
+//     if (s.length % 2 !== 0 || s.length === 0) {
+//         return false;
+//     }
 
-    let stack = [];
-    let map = new Map([
-        [")", "("],
-        ["}", "{"],
-        ["]", "["],
-    ]);
+//     // Check if the string starts or ends with a closing parenthesis
+//     if (
+//         s[0] === ")" ||
+//         s[0] === "]" ||
+//         s[0] === "}" ||
+//         s[s.length - 1] === "(" ||
+//         s[s.length - 1] === "[" ||
+//         s[s.length - 1] === "{"
+//     ) {
+//         return false;
+//     }
 
-    for (let i = 0; i < arr.length; i++) {
-        let currentB = arr[i];
+//     // Initialize stack to store opening parentheses
+//     let stack: string[] = [];
 
-        if (currentB === ")" || currentB === "}" || currentB === "]") {
-        }
+//     // Map to store mappings of opening to closing parentheses
+//     const map: { [key: string]: string } = {
+//         "(": ")",
+//         "[": "]",
+//         "{": "}",
+//     };
 
-        for (let x = i; x < arr.length; x++) {
-            if (currentB === "(" && arr[x] === ")") {
-                break;
-            } else if (currentB === "{" && arr[x] === "}") {
-                break;
-            } else if (currentB === "[" && arr[x] === "]") {
-                break;
-            } else {
-                continue;
-            }
-        }
-    }
-    return true;
-}
+//     // Iterate through the string
+//     for (const char of s) {
+//         if (char in map) {
+//             // Push opening parentheses onto the stack
+//             stack.push(char);
+//         } else {
+//             // If it's a closing parenthesis
+//             if (stack.length === 0) {
+//                 // If stack is empty, there's no corresponding opening parenthesis
+//                 return false;
+//             } else {
+//                 // Pop the top element from the stack
+//                 const top = stack.pop() as string;
+//                 // Check if the closing parenthesis matches the corresponding opening parenthesis
+//                 if (map[top] !== char) {
+//                     return false;
+//                 }
+//             }
+//         }
+//     }
 
-console.log(isValid(s));
+//     // If stack is empty, all opening parentheses have been matched
+//     return stack.length === 0;
+// }
+
+// console.log(isValid(s));
+
+// ####################################################
 
 // ####################################################
 
