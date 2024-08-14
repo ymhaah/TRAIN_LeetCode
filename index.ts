@@ -898,11 +898,45 @@ Notes: The idea is that each element is equal to the sum of the element in the p
 
 // ####################################################
 
+// Link: https://leetcode.com/problems/valid-palindrome/description/
+
+// Valid Palindrome
+
+// A phrase is a palindrome if, after converting all uppercase letters into
+//  lowercase letters and removing all non-alphanumeric characters,
+// it reads the same forward and backward.
+//  Alphanumeric characters include letters and numbers.
+
+// Given a string s, return true if it is a palindrome, or false otherwise.
+
+// Input: s = "A man, a plan, a canal: Panama"
+// Output: true
+// Explanation: "amanaplanacanalpanama" is a palindrome.
+
+// Input: s = "race a car"
+// Output: false
+// Explanation: "raceacar" is not a palindrome.
+
+// let s = "A man, a plan, a canal: Panama";
+
+// function isPalindrome(s: string): boolean {
+//     let str = s.toLowerCase().replace(/[^a-z0-9]/g, "");
+//     let arr = str.split("");
+
+//     for (let i = 0; i <= arr.length - 1; i++) {
+//         if (arr[i] !== arr[arr.length - 1 - i]) {
+//             return false;
+//         }
+//     }
+//     return true;
+// }
+// console.log(isPalindrome(s));
+
 // ####################################################
 
 // link: https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
 
-// Best Time to Buy and Sell Stock (not)
+// Best Time to Buy and Sell Stock
 
 // You are given an array prices where prices[i] is the price of a given stock on the ith day.
 // You want to maximize your profit by choosing a single day to buy
@@ -922,37 +956,32 @@ Notes: The idea is that each element is equal to the sum of the element in the p
 // Output: 0
 // Explanation: In this case, no transactions are done and the max profit = 0.
 
-// let prices = [7, 5, 2, 1, 4];
+// let prices = [1, 2, 4, 2, 5, 7, 2, 4, 9, 0, 9];
 
-// p = [3, 2, 6, 1, 2, 3]
-// afterMinArr = [1, 2, 3]
-// beforeMinArr = [3, 2, 6]
-// max in afterMinArr 3
-// max in p 6
+// function maxProfit(prices: number[]): number {
+//     let profits: number[] = [];
+//     let s = 0;
 
-// function maxProfit(prices) {
-//     let afterMinArr = prices.slice(prices.indexOf(Math.min(...prices)) + 1);
-//     let beforeMinArr = prices.slice(
-//         undefined,
-//         prices.indexOf(Math.min(...prices))
-//     );
+//     for (let i = 1; i <= prices.length - 1; i++) {
+//         let e = i;
 
-//     if (afterMinArr.length == 0) {
-//         if (prices.length == 0) {
-//             console.log("t");
-//             return 0;
+//         if (prices[e] - prices[s] <= 0) {
+//             s = e;
+//         } else {
+//             profits.push(prices[e] - prices[s]);
 //         }
-//         return maxProfit(
-//             prices.slice(undefined, prices.indexOf(Math.min(...prices)))
-//         );
+//         console.log(profits, e, s);
 //     }
-
-//     return (
-//         afterMinArr[afterMinArr.indexOf(Math.max(...afterMinArr))] -
-//         prices[prices.indexOf(Math.min(...prices))]
-//     );
+//     if (profits.length === 0) {
+//         return 0;
+//     } else {
+//         let max = Math.max(...profits);
+//         return max;
+//     }
 // }
 // console.log("maxProfit:", maxProfit(prices));
+
+// ####################################################
 
 // ####################################################
 
