@@ -1056,66 +1056,42 @@ Notes: The idea is that each element is equal to the sum of the element in the p
 // Explanation: We must delete a character, so either the frequency of "a" is 1 and the frequency of "z" is 2, or vice versa.
 //  It is impossible to make all present letters have equal frequency.
 
-// let word1 = "ddaccb";
+let word1 = "aaazzzeee";
 
-// function equalFrequency(word) {
-//     let arr = word.split("");
+function equalFrequency(word: string): boolean {
+    // let array = word.split("");
 
-//     let hashMap = {};
+    // const hashMap = new Map();
+    // let frq: number[] = [];
 
-//     for (let i = 0; i < arr.length; i++) {
-//         if (hashMap[arr[i]]) {
-//             hashMap[arr[i]]++;
-//         } else {
-//             hashMap[arr[i]] = 1;
-//         }
-//     }
+    // for (let i = 0; i < array.length; i++) {
+    //     const currentElement = array[i];
 
-//     let friq = Array.from(Object.values(hashMap));
+    //     if (hashMap.has(currentElement)) {
+    //         hashMap.set(currentElement, hashMap.get(currentElement)! + 1);
+    //     } else {
+    //         hashMap.set(currentElement, 1);
+    //     }
+    // }
 
-//     if (
-//         friq.every((f) => {
-//             return f == friq[0];
-//         })
-//     ) {
-//         if (
-//             friq.every((f) => {
-//                 return f == 1;
-//             })
-//         ) {
-//             return true;
-//         } else {
-//             return false;
-//         }
-//     }
+    // hashMap.forEach((value) => {
+    //     frq.push(value);
+    // });
 
-//     console.log(friq);
-//     for (let i = 0; i < friq.length; i++) {
-//         friq[i] = friq[i] - 1;
-//         friq.splice(i, 1);
-//         if (friq[i] == 0) {
-//             if (
-//                 friq.every((f) => {
-//                     return f == friq[0];
-//                 })
-//             ) {
-//                 return true;
-//             }
-//         } else {
-//             console.log(friq);
-//             if (
-//                 friq.every((f) => {
-//                     return f == friq[0];
-//                 })
-//             ) {
-//                 return true;
-//             }
-//             friq[i] = friq[i] + 1;
-//         }
-//     }
-//     return false;
-// }
+    // for (let i = 0; i < frq.length; i++) {
+    //     // ! that is how you copy an array and not effect the original array when editing the copy
+    //     let copy = Array.from(frq);
+    //     copy[i] = copy[i] - 1;
 
-// console.log(equalFrequency(word1));
+    //     let set = new Set(copy);
+    //     if (set.size === 1) {
+    //         return true;
+    //     }
+    // }
+
+    return false;
+}
+
+console.log(equalFrequency(word1));
 
 // ####################################################
