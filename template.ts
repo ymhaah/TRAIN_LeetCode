@@ -35,6 +35,14 @@ for (const char of string) {
     console.log(char);
 }
 
+for (let i = 0; i < array.length; i++) {
+    // Outer loop: Iterates through each element in the array
+
+    for (let j = i + 1; j < array.length; j++) {
+        // Inner loop: Compares the current element (array[i]) with all elements after it (array[j])
+    }
+}
+
 // ####################################################
 
 // how to get a value with an index in a map & set
@@ -58,6 +66,18 @@ function textToArray(text: string): string[] {
 function isEven(number: number): boolean {
     return number % 2 === 0;
 }
+
+// ####################################################
+
+// ? array things
+
+let arr = [1, 2, 3, 4, 5];
+let i = 2;
+
+arr.splice(i, 1); // remove the element at index i
+
+let copyOfArr = Array.from(arr); // copy the array, works with (arr, Object , Set ,Map, string)
+let copyOfArr2 = [...arr]; // copy the array
 
 // ####################################################
 
