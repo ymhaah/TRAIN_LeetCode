@@ -772,12 +772,13 @@ Notes: The idea is that each element is equal to the sum of the element in the p
 //     return string1 === string2;
 // }
 // ####################################################
-// ####################################################
-// Remove Letter To Equalize Frequency (not)
+// Remove Letter To Equalize Frequency
 // link: https://leetcode.com/problems/remove-letter-to-equalize-frequency/
 // You are given a 0-indexed string word, consisting of lowercase English letters.
-//  You need to select one index and remove the letter at that index from word so that the frequency of every letter present in word is equal.
-// Return true if it is possible to remove one letter so that the frequency of all letters in word are equal, and false otherwise.
+//  You need to select one index and remove the letter at that index
+//  from word so that the frequency of every letter present in word is equal.
+// Return true if it is possible to remove one letter so that the
+//  frequency of all letters in word are equal, and false otherwise.
 // Note:
 // The frequency of a letter x is the number of times it occurs in the string.
 // You must remove exactly one letter and cannot chose to do nothing.
@@ -790,33 +791,32 @@ Notes: The idea is that each element is equal to the sum of the element in the p
 // Output: false
 // Explanation: We must delete a character, so either the frequency of "a" is 1 and the frequency of "z" is 2, or vice versa.
 //  It is impossible to make all present letters have equal frequency.
-let word1 = "aaazzzeee";
-function equalFrequency(word) {
-    let array = word.split("");
-    const hashMap = new Map();
-    let frq = [];
-    for (let i = 0; i < array.length; i++) {
-        const currentElement = array[i];
-        if (hashMap.has(currentElement)) {
-            hashMap.set(currentElement, hashMap.get(currentElement) + 1);
-        }
-        else {
-            hashMap.set(currentElement, 1);
-        }
-    }
-    hashMap.forEach((value) => {
-        frq.push(value);
-    });
-    for (let i = 0; i < frq.length; i++) {
-        // ! that is how you copy an array and not effect the original array when editing the copy
-        let copy = Array.from(frq);
-        copy[i] = copy[i] - 1;
-        let set = new Set(copy);
-        if (set.size === 1) {
-            return true;
-        }
-    }
-    return false;
-}
-console.log(equalFrequency(word1));
+// let word1 = "abc";
+// function equalFrequency(word: string): boolean {
+//     let array = word.split("");
+//     for (let i = 0; i < array.length; i++) {
+//         let copy = Array.from(array);
+//         copy.splice(i, 1);
+//         let frq = [];
+//         const hashMap = new Map();
+//         for (let i = 0; i < copy.length; i++) {
+//             const currentElement = copy[i];
+//             if (hashMap.has(currentElement)) {
+//                 hashMap.set(currentElement, hashMap.get(currentElement)! + 1);
+//             } else {
+//                 hashMap.set(currentElement, 1);
+//             }
+//         }
+//         hashMap.forEach((value) => {
+//             frq.push(value);
+//         });
+//         const set = new Set(frq);
+//         if (set.size == 1) {
+//             return true;
+//         }
+//     }
+//     return false;
+// }
+// console.log(equalFrequency(word1));
+// ####################################################
 // ####################################################
